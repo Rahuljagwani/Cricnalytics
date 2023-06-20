@@ -7,7 +7,7 @@ const { application } = require("express");
 
 const db = mysql.createPool({
     host: "localhost",
-    user: "root",
+    user: "rahul",
     password: "Pass1869#",
     database: "cricnalytics"
 
@@ -51,8 +51,12 @@ app.get("/api/maxruns", (req, res) => {
     group by p.name
     order by sum(b.runsperball) desc limit ${m}`;
     db.query(mruns, (err, result) => {
-        res.send(result);
-
+        if(err == null)
+        {
+            res.send(result);
+        } else {
+            console.log(err);
+        }
     })
 });
 
