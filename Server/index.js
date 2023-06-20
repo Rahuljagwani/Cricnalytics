@@ -349,9 +349,6 @@ app.post("/api/delete", (req, res) => {
         res.send(err.sqlMessage);
         console.log(err);
     });
-
-
-
 }
 );
 
